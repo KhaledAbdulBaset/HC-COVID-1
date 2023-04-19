@@ -3,11 +3,9 @@ from keras.models import load_model
 from PIL import Image
 import numpy as np
 
-
+app = Flask(__name__)
 if __name__ == '__main__':
     app.run(debug=True)
-    
-app = Flask(__name__)
 
 def preprossing(image):
     image=Image.open(image)
@@ -62,6 +60,6 @@ def predict():
      
         print(prediction)
 
-        return render_template('index.html', prediction=prediction, image='static/IMG/', appName="Intel Image Classification")
+        return render_template('index.html', prediction=prediction,appName="Intel Image Classification")
     else:
         return render_template('index.html',appName="Intel Image Classification")
