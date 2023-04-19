@@ -38,12 +38,9 @@ def api():
         print("Model predicted")
         ind = np.argmax(result)
         prediction = classes[ind]
-        if prediction == 0:
-            prediction1 = "COVID"
-        else:
-            prediction1 = "NORMAL"
-        print(prediction1)
-        return jsonify({'prediction': prediction1})
+       
+        print(prediction)
+        return jsonify({'prediction': prediction})
     except:
         return jsonify({'Error': 'Error occur'})
 
@@ -62,12 +59,9 @@ def predict():
         print("predicted ...")
         ind = np.argmax(result)
         prediction = classes[ind]
-        if prediction==0:
-            prediction1="COVID"
-        else:
-            prediction1 = "NORMAL"
-        print(prediction1)
+     
+        print(prediction)
 
-        return render_template('index.html', prediction=prediction1, image='static/IMG/', appName="Intel Image Classification")
+        return render_template('index.html', prediction=prediction, image='static/IMG/', appName="Intel Image Classification")
     else:
         return render_template('index.html',appName="Intel Image Classification")
